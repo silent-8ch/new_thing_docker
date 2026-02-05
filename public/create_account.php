@@ -110,6 +110,7 @@ try {
     ]);
 
     $_SESSION['user'] = [
+        'provider' => 'google',
         'google_id' => $sub,
         'email' => $email,
         'name' => $name

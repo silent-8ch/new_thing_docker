@@ -11,6 +11,8 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - APPLE_CLIENT_ID=${APPLE_CLIENT_ID}
+      - APPLE_REDIRECT_URI=${APPLE_REDIRECT_URI}
     depends_on:
       - db
     volumes:

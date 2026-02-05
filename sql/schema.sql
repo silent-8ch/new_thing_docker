@@ -1,11 +1,15 @@
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  google_id VARCHAR(255) NOT NULL,
+  google_id VARCHAR(255),
+  apple_id VARCHAR(255),
   iss VARCHAR(255),
   azp VARCHAR(255),
   aud VARCHAR(255),
-  email VARCHAR(255) NOT NULL,
+  email VARCHAR(255),
+  apple_email VARCHAR(255),
   email_verified TINYINT(1),
+  apple_email_verified TINYINT(1),
+  apple_is_private_email TINYINT(1),
   name VARCHAR(255),
   given_name VARCHAR(255),
   family_name VARCHAR(255),
@@ -19,5 +23,7 @@ CREATE TABLE IF NOT EXISTS users (
   created_at DATETIME,
   updated_at DATETIME,
   UNIQUE KEY (google_id),
-  INDEX (email)
+  UNIQUE KEY (apple_id),
+  INDEX (email),
+  INDEX (apple_email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

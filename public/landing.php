@@ -5,6 +5,7 @@ if (empty($_SESSION['user'])) {
     exit;
 }
 $user = $_SESSION['user'];
+$provider = $user['provider'] ?? (isset($user['apple_id']) ? 'apple' : 'google');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,9 @@ $user = $_SESSION['user'];
       <h1>Welcome</h1>
       <p>You are signed in.</p>
       <ul>
+        <li><strong>Provider:</strong> <?php echo htmlspecialchars($provider); ?></li>
         <li><strong>Google ID:</strong> <?php echo htmlspecialchars($user['google_id'] ?? ''); ?></li>
+        <li><strong>Apple ID:</strong> <?php echo htmlspecialchars($user['apple_id'] ?? ''); ?></li>
         <li><strong>Email:</strong> <?php echo htmlspecialchars($user['email'] ?? ''); ?></li>
         <li><strong>Name:</strong> <?php echo htmlspecialchars($user['name'] ?? ''); ?></li>
       </ul>
