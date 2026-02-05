@@ -1,0 +1,6 @@
+/vendor/
+/.env
+/.env.*
+/db_data/
+*.log
+*.sqlite

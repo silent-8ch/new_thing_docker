@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  google_id VARCHAR(255) NOT NULL,
+  iss VARCHAR(255),
+  azp VARCHAR(255),
+  aud VARCHAR(255),
+  email VARCHAR(255) NOT NULL,
+  email_verified TINYINT(1),
+  name VARCHAR(255),
+  given_name VARCHAR(255),
+  family_name VARCHAR(255),
+  picture VARCHAR(512),
+  locale VARCHAR(64),
+  hd VARCHAR(255),
+  nbf INT,
+  iat INT,
+  exp INT,
+  jti VARCHAR(255),
+  created_at DATETIME,
+  updated_at DATETIME,
+  UNIQUE KEY (google_id),
+  INDEX (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
