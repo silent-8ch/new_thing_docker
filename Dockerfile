@@ -6,6 +6,12 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql \
     && a2enmod rewrite
 
+# Configure PHP handler
+RUN echo "AddType application/x-httpd-php .php" >> /etc/apache2/apache2.conf \
+    && echo "<FilesMatch \.php$>" >> /etc/apache2/apache2.conf \
+    && echo "    SetHandler application/x-httpd-php" >> /etc/apache2/apache2.conf \
+    && echo "</FilesMatch>" >> /etc/apache2/apache2.conf
+
 # Set working directory
 WORKDIR /var/www/html
 
