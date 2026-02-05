@@ -53,7 +53,7 @@ class GitHubProvider extends OAuthProvider {
         $data = json_decode($response, true);
         
         // Get primary email if not public
-        $email = $data['email'];
+        $email = $data['email'] ?? null;
         if (empty($email)) {
             $emailResponse = $this->httpRequest('https://api.github.com/user/emails', 'GET', null, [
                 "Authorization: Bearer $accessToken",

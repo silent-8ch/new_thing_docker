@@ -12,7 +12,7 @@ function loadEnv($path = __DIR__ . '/../.env') {
             continue;
         }
         
-        list($name, $value) = explode('=', $line, 2);
+        [$name, $value] = explode('=', $line, 2);
         $name = trim($name);
         $value = trim($value);
         
